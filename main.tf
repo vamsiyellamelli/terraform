@@ -1,6 +1,6 @@
 provider "google" {
   credentials = file(var.credentials_file)
-  project     = "tokyo-scholar-455804" # Hardcoded
+  project     = "tokyo-scholar-455804-v8"  # ✅ Corrected Project ID
   region      = var.region
   zone        = var.zone
 }
@@ -18,7 +18,7 @@ resource "google_compute_instance" "default" {
 
   network_interface {
     network = "default"
-    access_config {}  # ✅ Fixed this block
+    access_config {}
   }
 
   metadata_startup_script = <<-EOF
