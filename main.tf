@@ -1,6 +1,6 @@
 provider "google" {
   credentials = file(var.credentials_file)
-  project     = var.project_id
+  project     = "tokyo-scholar-455804" # Hardcoded project ID
   region      = var.region
   zone        = var.zone
 }
@@ -18,14 +18,4 @@ resource "google_compute_instance" "default" {
 
   network_interface {
     network = "default"
-    access_config {}
-  }
-
-  metadata_startup_script = <<-EOF
-    #!/bin/bash
-    apt update
-    apt install -y nginx
-    systemctl enable nginx
-    systemctl start nginx
-  EOF
-}
+    access

@@ -3,11 +3,6 @@ variable "credentials_file" {
   type        = string
 }
 
-variable "project_id" {
-  description = "GCP Project ID"
-  type        = string
-}
-
 variable "region" {
   default     = "us-central1"
   description = "GCP Region"
