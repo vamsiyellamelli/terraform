@@ -12,7 +12,7 @@ resource "google_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-12"  # Bookworm
+      image = "debian-cloud/debian-12" # Bookworm
     }
   }
 
@@ -28,4 +28,8 @@ resource "google_compute_instance" "default" {
     systemctl enable nginx
     systemctl start nginx
   EOF
+}
+
+output "instance_ip" {
+  value = google_compute_instance.default.network_interface[0].access_config[0].nat_ip
 }
