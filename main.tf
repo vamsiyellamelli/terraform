@@ -1,18 +1,18 @@
 provider "google" {
   credentials = file(var.credentials_file)
-  project     = "tokyo-scholar-455804-v8"  # ✅ Corrected Project ID
+  project     = "tokyo-scholar-455804-v8"
   region      = var.region
   zone        = var.zone
 }
 
 resource "google_compute_instance" "default" {
-  name         = "nginx-web"
-  machine_type = "e2-micro"
+  name         = "instance-terraform-vm"
+  machine_type = "e2-medium"
   zone         = var.zone
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-12"  # Bookworm
     }
   }
 
